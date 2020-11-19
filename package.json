@@ -1,0 +1,23 @@
+{
+    "name": "imumi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack --mode development --watch",
+        "prod": "webpack --mode production"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/cli": "^7.12.1",
+        "@babel/core": "^7.12.3",
+        "@babel/preset-env": "^7.12.1",
+        "babel": "^6.23.0",
+        "babel-loader": "^8.2.1",
+        "chart.js": "^2.9.4",
+        "webpack": "^5.6.0",
+        "webpack-cli": "^4.2.0"
+    }
+}
