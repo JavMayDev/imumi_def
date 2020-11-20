@@ -1,0 +1,13 @@
+#superwraper {
+    // height: 500px;
+    // position: relative;
+
+    #chartWrapper {
+        width: 600px;
+        overflow-x: scroll;
+        // position: relative;
+    }
+}
+canvas {
+    position: absolute;
+}
