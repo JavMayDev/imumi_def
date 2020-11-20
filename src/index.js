@@ -1,21 +1,31 @@
 import './styles.scss'
 
 import { diffWidth, chartCanvas } from './chart'
-import { dataLength } from './datasets'
+import { dataLength, data, datasetsAmount } from './datasets'
 // import Velocity from 'velocity-animate'
+
+for (let i = 0; i < datasetsAmount; i++) {
+    let indicator = document.createElement('div')
+    indicator.setAttribute('class', 'indicator')
+    document.body.appendChild(indicator)
+}
 
 let timeInterval = 17000
 
-for (let i = 0; i < dataLength - 20; i++) {
-    console.log('right progress:', i * diffWidth + 'px')
-    Velocity(
-        chartCanvas,
-        {
-            right: i * diffWidth + 'px',
-        },
-        {
-            duration: timeInterval,
-            easing: 'linear',
-        }
-    )
+function runAnimation() {
+    for (let i = 0; i < dataLength - 20; i++) {
+        console.log('data: ', data.datasets[0].data[i + 10])
+        Velocity(
+            chartCanvas,
+            {
+                right: i * diffWidth + 'px',
+            },
+            {
+                duration: timeInterval,
+                easing: 'linear',
+            }
+        )
+    }
 }
+
+// runAnimation()

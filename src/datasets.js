@@ -24,4 +24,4 @@ for (var i = 0; i < dataLength; i++) {
         data.datasets[j].data.push(Math.random() * 10)
 }
 
-export { data, dataLength }
+export { data, dataLength, datasetsAmount }
