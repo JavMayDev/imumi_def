@@ -13,10 +13,10 @@ for (let i = 0; i < datasetsAmount; i++) {
     document.body.appendChild(indicator)
 }
 
-let timeInterval = 1000
+var timeInterval = 1000
 
 var i = 0
-var inverval = setInterval(() => step(), timeInterval)
+// var interval = setInterval(() => step(), timeInterval)
 
 function step() {
     Velocity(
@@ -40,6 +40,6 @@ function step() {
             { duration: timeInterval, easing: 'swing' }
         )
     }
-    if (i == dataLength) clearInterval(invterval)
+    if (i == dataLength - 10) clearInterval(interval)
     else i++
 }

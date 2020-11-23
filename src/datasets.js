@@ -3,7 +3,6 @@ const data = { labels: [], datasets: [] }
 const dataLength = 50
 const datasetsAmount = 3
 
-
 const colors = ['#f55', '#5f5', '#55f']
 
 // set each dataset
@@ -15,9 +14,9 @@ for (var j = 0; j < datasetsAmount; j++)
 	// color settings
         fillColor: 'rgba(0,0,0,0)',
         strokeColor: colors[j],
-        pointColor: 'rgba(220,220,220,1)',
-        pointStrokeColor: '#fff',
-        pointHighlightFill: '#fff',
+        pointColor: colors[j],
+        pointStrokeColor:colors[j], 
+        pointHighlightFill: colors[j], 
     })
 
 // fill datasets with random data
