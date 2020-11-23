@@ -3,6 +3,9 @@ const data = { labels: [], datasets: [] }
 const dataLength = 50
 const datasetsAmount = 3
 
+
+const colors = ['#f55', '#5f5', '#55f']
+
 // set each dataset
 for (var j = 0; j < datasetsAmount; j++)
     data.datasets.push({
@@ -10,8 +13,8 @@ for (var j = 0; j < datasetsAmount; j++)
         data: [],
 
 	// color settings
-        fillColor: 'rgba(220,220,220,0.2)',
-        strokeColor: 'rgba(220,220,220,1)',
+        fillColor: 'rgba(0,0,0,0)',
+        strokeColor: colors[j],
         pointColor: 'rgba(220,220,220,1)',
         pointStrokeColor: '#fff',
         pointHighlightFill: '#fff',
@@ -24,4 +27,4 @@ for (var i = 0; i < dataLength; i++) {
         data.datasets[j].data.push(Math.random() * 10)
 }
 
-export { data, dataLength, datasetsAmount }
+export { data, dataLength, datasetsAmount, colors }

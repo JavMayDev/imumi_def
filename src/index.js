@@ -1,31 +1,45 @@
 import './styles.scss'
 
 import { diffWidth, chartCanvas } from './chart'
-import { dataLength, data, datasetsAmount } from './datasets'
-// import Velocity from 'velocity-animate'
+import { dataLength, data, datasetsAmount, colors } from './datasets'
+import animate from 'velocity-animate'
 
+// append indicators to body
 for (let i = 0; i < datasetsAmount; i++) {
     let indicator = document.createElement('div')
     indicator.setAttribute('class', 'indicator')
+    indicator.setAttribute('id', 'i' + i)
+    indicator.style.backgroundColor = colors[i]
     document.body.appendChild(indicator)
 }
 
-let timeInterval = 17000
+let timeInterval = 1000
 
-function runAnimation() {
-    for (let i = 0; i < dataLength - 20; i++) {
-        console.log('data: ', data.datasets[0].data[i + 10])
+var i = 0
+var inverval = setInterval(() => step(), timeInterval)
+
+function step() {
+    Velocity(
+        chartCanvas,
+        {
+            right:
+                i * diffWidth +
+                ($(window).width() - $('#chartCanvas').width()) +
+                'px',
+        },
+        {
+            duration: timeInterval,
+            easing: 'linear',
+        }
+    )
+    for (let j = 0; j < datasetsAmount; j++) {
+        var indicator = document.getElementById('i' + j)
         Velocity(
-            chartCanvas,
-            {
-                right: i * diffWidth + 'px',
-            },
-            {
-                duration: timeInterval,
-                easing: 'linear',
-            }
+            indicator,
+            { top: '-' + data.datasets[j].data[i + 10] * 50 + 'px' },
+            { duration: timeInterval, easing: 'swing' }
         )
     }
+    if (i == dataLength) clearInterval(invterval)
+    else i++
 }
-
-// runAnimation()
