@@ -2,10 +2,10 @@
     #chartWrapper {
         width: 600px;
         overflow-x: hidden;
-        canvas {
-            position: absolute;
-        }
     }
+}
+canvas {
+    position: absolute;
 }
 
 .indicator {

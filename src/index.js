@@ -16,14 +16,14 @@ for (let i = 0; i < datasetsAmount; i++) {
 var timeInterval = 1000
 
 var i = 0
-// var interval = setInterval(() => step(), timeInterval)
+var interval = setInterval(() => step(), timeInterval)
 
 function step() {
     Velocity(
         chartCanvas,
         {
             right:
-                i * diffWidth +
+                (i * diffWidth ) +
                 ($(window).width() - $('#chartCanvas').width()) +
                 'px',
         },
