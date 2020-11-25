@@ -1,11 +1,13 @@
-#superwraper {
+#superwrapper {
+    height: 500px;
     #chartWrapper {
+        height: 500px;
         width: 600px;
         overflow-x: hidden;
+        canvas {
+            position: absolute;
+        }
     }
-}
-canvas {
-    position: absolute;
 }
 
 .indicator {
