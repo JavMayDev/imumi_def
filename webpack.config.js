@@ -2,8 +2,8 @@ const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    // entry: ['@babel/polyfill', './src/index.js'],
-    entry: './src/index',
+    entry: ['@babel/polyfill', './src/index.js'],
+    // entry: './src/index',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -19,8 +19,8 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             },
         ],
     },

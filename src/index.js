@@ -1,2 +1,6 @@
-import './styles.scss'
-import './controls'
+import $ from 'jquery'
+
+import './setTimeline'
+
+import './styles.css'
+    

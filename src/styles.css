@@ -1,0 +1,32 @@
+h1 {
+    color: red;
+}
+
+.container {
+    padding: 0px 100px 100px 100px;
+}
+
+#monthTags {
+    display: flex;
+    flex-direction: row;
+}
+
+#timeLineWrapper {
+    overflow-x: scroll;
+    height: 200px;
+    width: 100%;
+}
+
+#timeLine { 
+    width: 100%;
+    position: relative;
+}
+
+#info {
+    border-left: 2px solid black;
+    font-size: 20px;
+    padding: 50px;
+    height: 500px;
+    overflow-y: scroll;
+
+}

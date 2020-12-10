@@ -4,26 +4,27 @@
         <meta charset="UTF-8" />
         <title></title>
     </head>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"
-        integrity="sha512-+VS2+Nl1Qit71a/lbncmVsWOZ0BmPDkopw5sXAS2W+OfeceCEd9OGTQWjgVgP5QaMV4ddqOIW9XLW7UVFzkMAw=="
-        crossorigin="anonymous"
-    ></script>
-    <!-- <link rel="stylesheet" href="./styles.scss"> -->
     <body>
-        <div id="superwrapper">
-            <div id="chartWrapper">
-                <canvas id="chartCanvas"></canvas>
+	<h1>imumi</h1>
+        <div class="container">
+            <!-- info space -->
+            <div id="info"></div>
+
+            <div id="timeLineWrapper">
+                <div id="timeLine">
+		    <svg id="svgIndicator" height="50" >
+                        <path
+                            id="pathIndicator"
+                            fill="none"
+                            stroke="black"
+                            stroke-width="2"
+                        />
+                    </svg>
+                    <svg id="svgLine" width="auto"></svg>
+                    <div id="monthTags"></div>
+                </div>
             </div>
         </div>
-	<button id='prevBtn'>Prev</button>
-	<button id='stopBtn'>stop</button>
-	<button id='runBtn'>run</button>
-	<button id='stepBtn'>step</button>
+	<button id="toggler">check timeLineData</button>
     </body>
 </html>
