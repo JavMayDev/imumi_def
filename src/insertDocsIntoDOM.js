@@ -2,18 +2,28 @@ import $ from 'jquery'
 
 export default docSets => {
     // format a document in html wrapper
-    var infoDiv = $('#info')
+    const infoDiv = $('#info')
+
+    const image = document.createElement('img')
+    image.setAttribute('crossorigin', 'anonymus')
 
     var empty = true
     docSets.forEach(docSet => {
         if (!docSet) return
-        empty = false
-
-        console.log(docSet)
 
         infoDiv.append(' <h2>' + docSet.header + '</h2> ')
 
+        empty = false
         docSet.docs.forEach(doc => {
+            console.log('doc: ', doc)
+
+            if (
+                doc.imageUrl &&
+                // testUrl(doc.imageUrl) &&
+                !image.getAttribute('src')
+            )
+                image.setAttribute('src', doc.imageUrl)
+
             var docDiv = document.createElement('div')
             var docDate = document.createElement('h4')
             var docP = document.createElement('p')
@@ -35,5 +45,21 @@ export default docSets => {
         })
     })
 
+    if (image.getAttribute('src')) infoDiv.prepend(image)
+
     if (empty) infoDiv.append(' <h1>No hay noticias para mostrar</h1> ')
+}
+
+function testUrl(url) {
+    return new Promise((resolve, _) => {
+        fetch(url, {
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+        }).then(({ status }) => {
+            console.log('status on testUrl: ', status)
+            return status === 200 ? resolve(true) : resolve(false)
+        })
+    })
 }

@@ -8,7 +8,7 @@ export default ({ header, docs }, date) => {
         if (
             docDate[0] == date[0] && // same year
             docDate[1] == date[1] && // same month
-            Math.trunc(docDate[2] / 7) == date[2] - 1 // on same week
+            Math.trunc(docDate[2] / 7) == date[2] // on same week
         )
 	    matchedDocs.push(doc)
     })

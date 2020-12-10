@@ -2,6 +2,7 @@ import { monthNames } from './constants'
 import filterDocSet from './filterDocSet'
 import docSet1 from './mocks/byCountries'
 import docSet2 from './mocks/header2'
+import docSet3 from './mocks/header3'
 
 const timeLineData = monthNames.map(
     month =>
@@ -11,8 +12,8 @@ const timeLineData = monthNames.map(
         })
 )
 
-var docSets = [docSet2]
-docSet1.forEach(docSet => docSets.push(docSet))
+var docSets = [docSet2, docSet3]
+docSet1.forEach(docSet => docSets.unshift(docSet))
 
 timeLineData.forEach((month, monthIndex) =>
     month.weeks.forEach((week, weekIndex) =>

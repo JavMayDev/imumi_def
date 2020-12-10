@@ -15,6 +15,9 @@ export default {
                 'Organizaciones defensoras de derechos de personas migrantes y con necesidades de protecci&oacute;n internacional manifestaron su alerta ante los recientes comunicados del Instituto Nacional de Migraci&oacute;n respecto a la suspensi&oacute;n de ingreso de asociaciones religiosas y organizaciones de la sociedad civil a estaciones migratorias.',
             link:
                 'https://centroprodh.org.mx/2020/01/30/sociedad-civil-rechaza-politica-erratica-que-obstaculiza-el-derecho-a-defender-derechos-humanos-en-un-contexto-de-crisis-humanitaria-de-personas-migrantes-y-refugiadas/',
+            // imageUrl: 'https://www.hrw.org/modal/31856',
+	    // imageUrl: 'https://picsum.photos/200'
+	    imageUrl: 'https://centroprodh.org.mx/wp-content/uploads/2020/01/CprensaMigEne2003-600x400.jpeg'
         },
         {
             date: '2020-03-17',
