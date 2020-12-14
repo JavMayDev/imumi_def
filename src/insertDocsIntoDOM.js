@@ -15,7 +15,6 @@ export default docSets => {
 
         empty = false
         docSet.docs.forEach(doc => {
-            console.log('doc: ', doc)
 
             if (
                 doc.imageUrl &&

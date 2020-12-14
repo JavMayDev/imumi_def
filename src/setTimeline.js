@@ -32,7 +32,9 @@ $(document).ready(() => {
         span.setAttribute('id', 'monthSpan-' + i)
         span.style.position = 'absolute'
         span.style.transform = 'translateX(' + (i * monthWidth - 7) + 'px)'
-        span.appendChild(document.createTextNode(month))
+        span.appendChild(
+            document.createTextNode(month.substring(0, 3).toUpperCase())
+        )
 
         monthTags.append(span)
 
