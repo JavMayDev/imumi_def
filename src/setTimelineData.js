@@ -25,7 +25,9 @@ timeLineData.forEach((month, monthIndex) =>
     )
 )
 
+
 import $ from 'jquery'
 $('#toggler').click(_ => console.log(timeLineData))
+
 
 export default timeLineData

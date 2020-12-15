@@ -1,5 +1,3 @@
-import { filterDocSet } from './filterDocSet'
-import heading1 from './mocks/byCountries'
 
 const monthNames = [
     'Enero',

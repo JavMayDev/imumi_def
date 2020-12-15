@@ -46,10 +46,10 @@ $(document).ready(() => {
             // set week cricle
             circle.attr('cx', i * monthWidth + (j + 1) * 50)
             circle.attr('cy', svgLineHeight / 2)
-            circle.attr('r', 5)
+            circle.attr('r', 6)
             circle.attr('fill', '#aaa')
             circle.attr('class', 'weekCircle')
-            circle.attr('id', month + i)
+            circle.attr('id', month + j)
 
             circle.click(({ target }) => {
                 infoDiv.empty()

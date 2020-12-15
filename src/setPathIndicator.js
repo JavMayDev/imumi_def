@@ -10,11 +10,13 @@ export default target => {
         (cx - 25) +
         ' 0 L ' +
         cx +
-        ' 50 L ' +
+        ' 30 L ' +
         (cx + 25) +
         ' 0 L ' +
         lineWidth +
         ' 0'
 
     path.attr('d', dPath)
+
+    document.getElementById('pin').style.left = (cx - 25) + 'px'
 }
