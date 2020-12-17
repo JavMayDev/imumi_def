@@ -11,46 +11,37 @@ export default docSets => {
         infoDiv.append(' <h2>' + docSet.header + '</h2> ')
 
         empty = false
-        docSet.docs.forEach(doc => {
-
+        docSet.docs.forEach((doc, docIndex) => {
             var docDiv = document.createElement('div')
+            var docInfo = document.createElement('div')
             var docDate = document.createElement('h4')
             var docP = document.createElement('p')
             var docLink = document.createElement('a')
+            var docImage = new Image()
 
+            docDiv.setAttribute('class', 'doc')
+            docInfo.setAttribute('class', 'doc-info')
             docDate.textContent = doc.date
             docP.innerHTML = doc.content
             docLink.setAttribute('href', doc.link)
             docLink.setAttribute('target', '_blank')
-            docLink.textContent = 'Fuente'
+            docLink.innerHTML = ' <button>fuente</button> '
+            docImage.src = 'https://picsum.photos/200/200/?random=' + docIndex
+
+            console.log('docImage src: ', docImage.src)
 
             // Join doc parts
-            docDiv.appendChild(docDate)
-            docDiv.appendChild(docP)
-            docDiv.appendChild(docLink)
+            docInfo.appendChild(docDate)
+            docInfo.appendChild(docP)
+            docInfo.appendChild(docLink)
+            docDiv.appendChild(docImage)
+            docDiv.appendChild(docInfo)
 
             // append to info div
             infoDiv.append(docDiv)
         })
     })
 
-    // if (image.getAttribute('src')) infoDiv.prepend(image)
-
     if (empty) infoDiv.append(' <h1>No hay noticias para mostrar</h1> ')
-    else 
-	$('#week-img').attr('src', 'https://picsum.photos/300/400/?random&t=' + new Date().getTime() )
+    else $('#week-img').attr('src')
 }
-
-// function testUrl(url) {
-//     return new Promise((resolve, _) => {
-//         fetch(url, {
-//             mode: 'cors',
-//             headers: {
-//                 'Access-Control-Allow-Origin': '*',
-//             },
-//         }).then(({ status }) => {
-//             console.log('status on testUrl: ', status)
-//             return status === 200 ? resolve(true) : resolve(false)
-//         })
-//     })
-// }
