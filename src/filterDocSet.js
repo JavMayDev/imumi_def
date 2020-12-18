@@ -1,11 +1,14 @@
 const weekLimits = [0, 7, 14, 21, 31]
 
-export default ({ header, docs }, date) => {
-    // date : [ year, month, week ]
+export default (
+    docs,
+    date // date : [ year, month, week ]
+) =>
     // returns all docs that match in a date range,
 
-
-    let matchedDocs = docs.filter(doc => {
+    docs.filter(doc => {
+	if(!doc.date) return null
+	// if(doc.date) console.log( 'doc: ', doc.date.split('-') )
         const docDate = doc.date.split('-')
 
         if (
@@ -17,6 +20,3 @@ export default ({ header, docs }, date) => {
         )
             return doc
     })
-
-    if (matchedDocs.length > 0) return { docs: matchedDocs, header }
-}

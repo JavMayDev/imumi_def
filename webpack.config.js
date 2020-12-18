@@ -5,7 +5,8 @@ module.exports = {
     entry: ['@babel/polyfill', './src/index.js'],
     // entry: './src/index',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        // path: path.resolve(__dirname, 'dist'),
+	path: '/Applications/XAMPP/htdocs/wpt/wp-content/plugins/timeline/public',
         filename: 'bundle.js',
     },
     resolve: {
@@ -24,9 +25,9 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new htmlWebpackPlugin({
-            template: './src/index.html',
-        }),
-    ],
+    // plugins: [
+    //     new htmlWebpackPlugin({
+    //         template: './src/index.html',
+    //     }),
+    // ],
 }

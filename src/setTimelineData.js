@@ -15,18 +15,23 @@ const timeLineData = monthNames.map(
 var docSets = [docSet2, docSet3]
 docSet1.forEach(docSet => docSets.unshift(docSet))
 
+// timeLineData.forEach((month, monthIndex) =>
+//     month.weeks.forEach((week, weekIndex) =>
+//         docSets.forEach(docSet =>
+//             week.push(
+//                 filterDocSet(docSet, [2020, monthIndex + 1, weekIndex])
+//             )
+//         )
+//     )
+// )
+
 timeLineData.forEach((month, monthIndex) =>
     month.weeks.forEach((week, weekIndex) =>
-        docSets.forEach(docSet =>
-            week.push(
-                filterDocSet(docSet, [2020, monthIndex + 1, weekIndex])
-            )
-        )
+        week.push(filterDocSet(docs, [2020, monthIndex + 1, weekIndex]))
     )
 )
 
 import $ from 'jquery'
 $('#toggler').click(_ => console.log(timeLineData))
-
 
 export default timeLineData
