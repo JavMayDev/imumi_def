@@ -27,7 +27,7 @@ docSet1.forEach(docSet => docSets.unshift(docSet))
 
 timeLineData.forEach((month, monthIndex) =>
     month.weeks.forEach((week, weekIndex) =>
-        week.push(filterDocSet(docs, [2020, monthIndex + 1, weekIndex]))
+        week.push(...filterDocSet(docs, [2020, monthIndex + 1, weekIndex]))
     )
 )
 

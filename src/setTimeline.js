@@ -11,7 +11,7 @@ $(document).ready(() => {
     const monthTags = $('#monthTags')
     const svgLine = $('#svgLine')
     const svgIndicator = $('#svgIndicator')
-    const infoDiv = $('#info')
+    const infoDiv = $('#tl_info')
 
     svgLine.attr('height', svgLineHeight)
     svgLine.attr('width', lineWidth)
@@ -48,7 +48,7 @@ $(document).ready(() => {
             circle.attr('cy', svgLineHeight / 2)
             circle.attr('r', 6)
             circle.attr('fill', '#aaa')
-            circle.attr('class', 'weekCircle')
+            circle.attr('class', 'tl_weekCircle')
             circle.attr('id', month + j)
 
             circle.click(({ target }) => {
@@ -57,6 +57,8 @@ $(document).ready(() => {
                 focusDate(target, 'monthSpan-' + i)
                 insertDocsIntoDOM(timeLineData[i].weeks[j])
             })
+
+	    console.log( 'on click event: ', circle.click )
 
             svgLine.append(circle)
         }

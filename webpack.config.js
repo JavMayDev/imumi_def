@@ -1,5 +1,5 @@
 const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
+// const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: ['@babel/polyfill', './src/index.js'],
@@ -20,8 +20,8 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },

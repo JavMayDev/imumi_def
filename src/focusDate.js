@@ -1,6 +1,6 @@
 export default (weekCircle, monthSpanId) => {
     // fill gray all circles
-    Array.from(document.getElementsByClassName('weekCircle')).forEach(circle =>
+    Array.from(document.getElementsByClassName('tl_weekCircle')).forEach(circle =>
         circle.setAttribute('fill', '#555')
     )
 

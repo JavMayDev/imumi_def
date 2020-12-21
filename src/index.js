@@ -2,5 +2,5 @@ import $ from 'jquery'
 
 import './setTimeline'
 
-import './styles.css'
+import './styles.scss'
 import './draggable'

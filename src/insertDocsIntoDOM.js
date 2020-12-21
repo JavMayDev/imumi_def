@@ -1,47 +1,83 @@
 import $ from 'jquery'
 
-export default docSets => {
+export default docs => {
     // format a document in html wrapper
-    const infoDiv = $('#info')
+    const infoDiv = $('#tl_info')
 
-    var empty = true
-    docSets.forEach(docSet => {
-        if (!docSet) return
+    if (docs.length == 0) {
+        infoDiv.append(' <h1>No hay noticias para mostrar</h1> ')
+        return
+    }
 
-        infoDiv.append(' <h2>' + docSet.header + '</h2> ')
+    docs.forEach(doc => infoDiv.append(setDocComponent(doc)))
+}
 
-        empty = false
-        docSet.docs.forEach((doc, docIndex) => {
-            var docDiv = document.createElement('div')
-            var docInfo = document.createElement('div')
-            var docDate = document.createElement('h4')
-            var docP = document.createElement('p')
-            var docLink = document.createElement('a')
-            var docImage = new Image()
+function setDocComponent({ date, content, source, country, image_url, type }) {
+    var docDiv = document.createElement('div')
+    docDiv.setAttribute('class', 'tl_doc')
 
-            docDiv.setAttribute('class', 'doc')
-            docInfo.setAttribute('class', 'doc-info')
-            docDate.textContent = doc.date
-            docP.innerHTML = doc.content
-            docLink.setAttribute('href', doc.link)
-            docLink.setAttribute('target', '_blank')
-            docLink.innerHTML = ' <button>fuente</button> '
-            docImage.src = 'https://picsum.photos/200/200/?random=' + docIndex
+    var docInfo = document.createElement('div')
+    docInfo.setAttribute('class', 'tl_doc-info')
 
-            console.log('docImage src: ', docImage.src)
-
-            // Join doc parts
-            docInfo.appendChild(docDate)
-            docInfo.appendChild(docP)
-            docInfo.appendChild(docLink)
-            docDiv.appendChild(docImage)
-            docDiv.appendChild(docInfo)
-
-            // append to info div
-            infoDiv.append(docDiv)
-        })
+    var doc_type = doc_types.find(doc_type => {
+        if (doc_type.id === type) return doc_type
     })
 
-    if (empty) infoDiv.append(' <h1>No hay noticias para mostrar</h1> ')
-    else $('#week-img').attr('src')
+    docInfo.style.backgroundColor = '#' + doc_type.color
+x
+    // image
+    var docImage = new Image()
+    docImage.src = image_url
+
+    // date
+    var docDate = document.createElement('span')
+    docDate.innerHTML =
+        '<span class="tl_doc-label">FECHA:</span><br /><span class="tl_doc-value tl_doc-date">' +
+        date +
+        '</span>'
+
+    // content
+    var docContent = document.createElement('p')
+    docContent.innerHTML = content
+
+    // footer
+    var docFooter = document.createElement('div')
+    docFooter.setAttribute('class', 'tl_doc-footer')
+
+    // source
+    if (source) {
+        var docSource = document.createElement('a')
+        docSource.setAttribute('href', source)
+        docSource.setAttribute('target', '_blank')
+        docSource.innerHTML = ' <button>fuente</button> '
+        docFooter.appendChild(docSource)
+    }
+
+    // country
+    if (country) {
+        var docCountry = document.createElement('div')
+        docCountry.innerHTML =
+            ' <span class="tl_doc-label">PAIS:</span><br> <span class="tl_doc-value">' +
+            country +
+            '</span> '
+
+        docFooter.appendChild(docCountry)
+    }
+
+    // type
+    var docType = document.createElement('div')
+    docType.innerHTML =
+        ' <span class="tl_doc-label">CATEGORIA:</span><br> <span class="tl_doc-value">' +
+        doc_type.type_name +
+        '</span> '
+
+    // Join doc parts
+    docFooter.appendChild(docType)
+    docInfo.appendChild(docDate)
+    docInfo.appendChild(docContent)
+    docInfo.appendChild(docFooter)
+    docDiv.appendChild(docImage)
+    docDiv.appendChild(docInfo)
+
+    return docDiv
 }
