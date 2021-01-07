@@ -25,7 +25,7 @@ h2 {
 
 #timeLineWrapper {
     overflow-x: scroll;
-    height: 400px;
+    height: 180px;
     width: 100%;
     #timeLine {
         width: 100%;
@@ -44,7 +44,7 @@ h2 {
     border-left: 2px solid black;
     font-size: 20px;
     padding: 50px;
-    height: 500px;
+    height: 70vh;
 
     display: flex;
     flex-direction: row;
@@ -69,7 +69,7 @@ h2 {
 
     img {
         width: 300px;
-        height: auto;
+        min-height: 300px;
         object-fit: cover;
     }
 
@@ -85,6 +85,9 @@ h2 {
 
     .tl_doc-info {
         padding: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 
         .tl_doc-date {
             color: white;
@@ -93,6 +96,10 @@ h2 {
             font-size: 15px;
             font-weight: 900;
         }
+
+	.push {
+	    flex-grow: 1;
+	}
 
         .tl_doc-footer {
             display: flex;

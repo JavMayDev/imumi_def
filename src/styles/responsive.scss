@@ -1,0 +1,34 @@
+@media screen and (max-width: 1170px) {
+    .tl_container {
+        padding: 10px;
+
+        #tl_info-wrapper {
+            padding: 10px;
+        }
+    }
+
+    .tl_doc {
+        .tl_doc-footer {
+            flex-direction: column !important;
+            & > * {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+// smartphones
+@media screen and (max-width: 768px) {
+    .tl_doc {
+        flex-direction: column;
+
+        img {
+            width: 100%;
+            height: 250px;
+        }
+
+	.tl_doc-info {
+	    width: auto;
+	}
+    }
+}

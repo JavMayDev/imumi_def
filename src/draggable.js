@@ -22,15 +22,15 @@ document.onmousemove = ({ clientX }) => {
         draggable.style.left = left
         const week = left.split('p')[0] / weekWidth + 0.5
 
-	// don't trigger the same thing if already done
-	if(week === lastWeek) return
-	lastWeek = week
+        // don't trigger the same thing if already done
+        if (week === lastWeek) return
+        lastWeek = week
 
         const monthIndex = Math.trunc(week / 5)
         const weekCircle = document.getElementById(
             timeLineData[monthIndex].monthName + ((week % 5) - 1)
         )
-	weekCircle.dispatchEvent(new Event('click'))
+        if (weekCircle) weekCircle.dispatchEvent(new Event('click'))
     }
 }
 

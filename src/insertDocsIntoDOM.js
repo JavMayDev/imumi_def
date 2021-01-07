@@ -24,7 +24,7 @@ function setDocComponent({ date, content, source, country, image_url, type }) {
     })
 
     docInfo.style.backgroundColor = '#' + doc_type.color
-x
+
     // image
     var docImage = new Image()
     docImage.src = image_url
@@ -71,10 +71,14 @@ x
         doc_type.type_name +
         '</span> '
 
+    var push = document.createElement('div')
+    push.setAttribute('class', 'push')
+
     // Join doc parts
     docFooter.appendChild(docType)
     docInfo.appendChild(docDate)
     docInfo.appendChild(docContent)
+    docInfo.appendChild(push)
     docInfo.appendChild(docFooter)
     docDiv.appendChild(docImage)
     docDiv.appendChild(docInfo)
