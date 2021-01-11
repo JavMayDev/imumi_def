@@ -1,4 +1,3 @@
-
 const monthNames = [
     'Enero',
     'Febrero',
@@ -16,6 +15,6 @@ const monthNames = [
 
 const monthWidth = 250
 const svgLineHeight = 50
-const lineWidth = monthNames.length * monthWidth
+// const lineWidth = timeLineDataLength * monthWidth
 
-export { monthNames, monthWidth, svgLineHeight, lineWidth }
+export { monthNames, monthWidth, svgLineHeight }

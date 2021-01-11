@@ -30,6 +30,10 @@ h2 {
     #timeLine {
         width: 100%;
         position: relative;
+
+	#svgLine, * {
+	    max-width: none !important;
+	}
     }
 }
 
@@ -102,6 +106,10 @@ h2 {
 	}
 
         .tl_doc-footer {
+	    * {
+		word-break: keep-all;
+	    }
+
             display: flex;
             flex-direction: row;
 
@@ -114,6 +122,7 @@ h2 {
             }
 
             button {
+		// word-break: keep-all;
                 border: none;
                 border-radius: 6px;
                 background-color: #aaa;

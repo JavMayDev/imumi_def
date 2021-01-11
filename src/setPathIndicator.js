@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-import { lineWidth } from './constants'
+import { lineWidth } from './setTimelineData'
 
 export default target => {
     var path = $('#pathIndicator')

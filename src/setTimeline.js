@@ -1,8 +1,7 @@
 import $ from 'jquery'
-
 import setPathIndicator from './setPathIndicator'
-import { monthNames, monthWidth, svgLineHeight, lineWidth } from './constants'
-import timeLineData from './setTimelineData'
+import { monthWidth, svgLineHeight } from './constants'
+import { timeLineData, lineWidth } from './setTimelineData'
 import insertDocsIntoDOM from './insertDocsIntoDOM'
 import focusDate from './focusDate'
 
@@ -17,7 +16,7 @@ $(document).ready(() => {
     svgLine.attr('width', lineWidth)
     svgIndicator.attr('width', lineWidth)
 
-    monthNames.forEach((month, i) => {
+    timeLineData.forEach((month, i) => {
         const rect = $(
             document.createElementNS('http://www.w3.org/2000/svg', 'rect')
         )
@@ -29,11 +28,15 @@ $(document).ready(() => {
 
         const span = document.createElement('span')
         span.classList.add('monthSpan')
-        span.setAttribute('id', 'monthSpan-' + i)
+        span.setAttribute('id', month.year + i)
         span.style.position = 'absolute'
         span.style.transform = 'translateX(' + (i * monthWidth - 7) + 'px)'
         span.appendChild(
-            document.createTextNode(month.substring(0, 3).toUpperCase())
+            document.createTextNode(
+                month.year.toString().substring(2, 4) +
+                    '/' +
+                    month.monthName.substring(0, 3).toUpperCase()
+            )
         )
 
         monthTags.append(span)
@@ -49,16 +52,14 @@ $(document).ready(() => {
             circle.attr('r', 6)
             circle.attr('fill', '#aaa')
             circle.attr('class', 'tl_weekCircle')
-            circle.attr('id', month + j)
+            circle.attr('id', month.year + month.monthName + j)
 
             circle.click(({ target }) => {
                 infoDiv.empty()
                 setPathIndicator(target)
-                focusDate(target, 'monthSpan-' + i)
+                focusDate(target, month.year + i)
                 insertDocsIntoDOM(timeLineData[i].weeks[j])
             })
-
-	    console.log( 'on click event: ', circle.click )
 
             svgLine.append(circle)
         }

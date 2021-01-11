@@ -8,7 +8,6 @@ export default (
 
     docs.filter(doc => {
 	if(!doc.date) return null
-	// if(doc.date) console.log( 'doc: ', doc.date.split('-') )
         const docDate = doc.date.split('-')
 
         if (

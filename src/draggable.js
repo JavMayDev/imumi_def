@@ -1,5 +1,5 @@
 import { monthWidth } from './constants'
-import timeLineData from './setTimelineData'
+import { timeLineData } from './setTimelineData'
 
 const timeLineWrapper = document.getElementById('timeLineWrapper')
 const weekWidth = monthWidth / 5
@@ -28,7 +28,7 @@ document.onmousemove = ({ clientX }) => {
 
         const monthIndex = Math.trunc(week / 5)
         const weekCircle = document.getElementById(
-            timeLineData[monthIndex].monthName + ((week % 5) - 1)
+            timeLineData[monthIndex].year + timeLineData[monthIndex].monthName + ((week % 5) - 1)
         )
         if (weekCircle) weekCircle.dispatchEvent(new Event('click'))
     }

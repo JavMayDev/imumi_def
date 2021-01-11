@@ -1,4 +1,4 @@
-import { monthNames } from './constants'
+import { monthNames, monthWidth } from './constants'
 import filterDocSet from './filterDocSet'
 
 function getDateLimits(docs) {
@@ -16,31 +16,32 @@ function getDateLimits(docs) {
 }
 
 var dateLimits = getDateLimits(docs)
-console.log('max-min:', dateLimits)
+const timeLineData = new Array()
+const dateIndex = new Date(dateLimits.min)
+dateIndex.setDate(1)
 
-const timeLineData = monthNames.map(
-    month =>
+while (dateIndex <= dateLimits.max) {
+    timeLineData.push(
         new Object({
-            monthName: month,
+            year: dateIndex.getFullYear(),
+            monthName: monthNames[dateIndex.getMonth()],
+            monthNum: dateIndex.getMonth(),
             weeks: new Array(4).fill(null).map(_ => []),
         })
-)
+    )
+    dateIndex.setMonth(dateIndex.getMonth() + 1)
+}
 
-// const timeLineData = new Array()
-
-// const minYear = dateLimits.min.get
-// while(true) {
-//     if()
-// }
-
-
-timeLineData.forEach((month, monthIndex) =>
+timeLineData.forEach(month =>
     month.weeks.forEach((week, weekIndex) =>
-        week.push(...filterDocSet(docs, [2020, monthIndex + 1, weekIndex]))
+        week.push(
+            ...filterDocSet(docs, [month.year, month.monthNum + 1, weekIndex])
+        )
     )
 )
 
-import $ from 'jquery'
-$('#toggler').click(_ => console.log(timeLineData))
+// import $ from 'jquery'
+// $('#toggler').click(_ => console.log(timeLineData))
 
-export default timeLineData
+const lineWidth = timeLineData.length * monthWidth
+export { timeLineData, lineWidth }
